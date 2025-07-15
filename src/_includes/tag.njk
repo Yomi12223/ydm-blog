@@ -1,0 +1,18 @@
+{#
+{% if tag %}
+<h1>#{{ tag }} の記事一覧</h1>
+
+<div class="post-list">
+  {% for post in collections[tag] %}
+    <div class="post-card">
+      <a href="{{ post.url }}">
+        <h3>{{ post.data.title }}</h3>
+      </a>
+    </div>
+  {% endfor %}
+</div>
+
+{% else %}
+  <p>タグが指定されていません。</p>
+{% endif %}
+#}
