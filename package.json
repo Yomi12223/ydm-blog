@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "eleventy",
-    "dev": "eleventy --serve"
+    "dev": "eleventy --serve",
+    "deploy": "npm run build && xcopy /E /Y dist\\* docs\\",
+    "clean": "if exist dist rmdir /s /q dist"
   },
   "keywords": [],
   "author": "",
