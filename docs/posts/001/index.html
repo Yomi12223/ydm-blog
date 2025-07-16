@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <title>初投稿</title>
 
-    <link rel="stylesheet" href="/ydm-blog/style.css" />
+    <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
 
     <audio id="bgm" autoplay loop hidden>
-      <source src="/ydm-blog/assets/bgm.mp3" type="audio/mpeg" />
+      <source src="assets/bgm.mp3" type="audio/mpeg" />
     </audio>
 
     <div class="top-right-buttons">
@@ -21,8 +21,8 @@
     <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0" />
 
 <header class="main-header">
-  <a href="/ydm-blog/" class="main-header-logo-link">
-    <img src="/ydm-blog/assets/images/Ydmlabo.png" alt="YDM.LABO ロゴ" class="main-header-logo" />
+  <a href="index.html" class="main-header-logo-link">
+    <img src="assets/images/Ydmlabo.png" alt="YDM.LABO ロゴ" class="main-header-logo" />
   </a>
 </header>
 
@@ -30,7 +30,7 @@
 
 
 <div class="time-image">
-  <img id="time-background" src="/ydm-blog/assets/time/day.jpg" alt="時間帯画像" />
+  <img id="time-background" src="assets/time/day.jpg" alt="時間帯画像" />
 </div>
 
 
@@ -38,11 +38,11 @@
 
     <nav class="horizontal-menu">
       <ul class="category-list">
-        <li><a href="/ydm-blog/posts/">📘 記事</a></li>
-        <li><a href="/ydm-blog/news/">📰 ニュース</a></li>
-        <li><a href="/ydm-blog/game/">🎮 GAME</a></li>
-        <li><a href="/ydm-blog/tools/">🛠 ツール</a></li>
-        <li><a href="/ydm-blog/links/">🔗 リンク</a></li>
+        <li><a href="posts/">📘 記事</a></li>
+        <li><a href="news/">📰 ニュース</a></li>
+        <li><a href="game/">🎮 GAME</a></li>
+        <li><a href="tools/">🛠 ツール</a></li>
+        <li><a href="links/">🔗 リンク</a></li>
       </ul>
     </nav>
 
@@ -54,7 +54,7 @@
       <main class="main-content">
       
   <div class="back-button-area">
-    <a href="/ydm-blog/posts/" class="back-button">← 記事一覧に戻る</a>
+    <a href="posts/" class="back-button">← 記事一覧に戻る</a>
   </div>
 
 
@@ -73,7 +73,7 @@
       <aside class="sidebar-right">
         <div class="latest-posts-sidebar">
   <div class="fishdex-box">
-  <h3><a href="/ydm-blog/fishdex/">🐟 魚図鑑（仮）</a></h3>
+  <h3><a href="fishdex/">🐟 魚図鑑（仮）</a></h3>
   <p>準備中の魚図鑑です。</p>
 </div>
 
@@ -150,7 +150,7 @@
 
       logoutBtn.addEventListener('click', () => {
         localStorage.removeItem('ydm-login');
-        window.location.href = '/ydm-blog/login.html';
+        window.location.href = 'login.html';
       });
 
       if (!localStorage.getItem('ydm-muted') && localStorage.getItem('ydm-login') === 'true') {
@@ -173,11 +173,11 @@
       }
 
       const hour = new Date().getHours();
-      let imagePath = "/ydm-blog/assets/bg_day.png";
+      let imagePath = "assets/bg_day.png";
       if (hour >= 17 && hour < 20) {
-        imagePath = "/ydm-blog/assets/bg_evening.png";
+        imagePath = "assets/bg_evening.png";
       } else if (hour >= 20 || hour < 6) {
-        imagePath = "/ydm-blog/assets/bg_night.png";
+        imagePath = "assets/bg_night.png";
       }
       timeImage.style.backgroundImage = `url('${imagePath}')`;
     </script>
@@ -185,11 +185,11 @@
   const now = new Date().getHours();
   const img = document.getElementById("time-background");
   if (now >= 6 && now < 17) {
-    img.src = "/ydm-blog/assets/time/bg_day.png";
+    img.src = "assets/time/bg_day.png";
   } else if (now >= 17 && now < 20) {
-    img.src = "/ydm-blog/assets/time/bg_evening.png";
+    img.src = "assets/time/bg_evening.png";
   } else {
-    img.src = "/ydm-blog/assets/time/bg_night.png";
+    img.src = "assets/time/bg_night.png";
   }
 </script>
 
