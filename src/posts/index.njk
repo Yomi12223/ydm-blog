@@ -7,8 +7,8 @@ permalink: /posts/
 <h1>📘 記事一覧</h1>
 
 <div class="latest-posts-grid">
-  <a href="/posts/001/" class="post-card">
-    <img src="/assets/default-thumb.png" alt="">
+  <a href="{{ 'posts/001/' | relativePath }}" class="post-card">
+    <img src="{{ 'assets/default-thumb.png' | relativePath }}" alt="">
     <h3>初投稿</h3>
     <p class="date">2024/05/20</p>
   </a>
@@ -17,14 +17,14 @@ permalink: /posts/
 {# 
 <h2>📺 関連タグ一覧</h2>
 <ul class="tag-list">
-  <li><a href="/tags/dev/">#dev</a></li>
-  <li><a href="/tags/diary/">#diary</a></li>
+  <li><a href="{{ 'tags/dev/' | relativePath }}">#dev</a></li>
+  <li><a href="{{ 'tags/diary/' | relativePath }}">#diary</a></li>
 </ul>
 #}
 
 {# 
 <div class="smoothie-link-box">
-  <a href="/smoothies/" class="smoothie-link">
+  <a href="{{ 'smoothies/' | relativePath }}" class="smoothie-link">
     🧃 スムージー図鑑はこちら
   </a>
 </div>
