@@ -74,6 +74,7 @@ eleventyConfig.addCollection("tagList", function (collectionApi) {
       layouts: "_includes",
       output: "dist"
     },
+    pathPrefix: "/ydm-blog/",
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     dataTemplateEngine: "njk"
