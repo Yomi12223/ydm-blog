@@ -2,7 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <title>ニュース</title>
+    <title>ブログへようこそ</title>
 
     <link rel="stylesheet" href="/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -54,25 +54,14 @@
       <main class="main-content">
       
 
-        <h1>📰 更新履歴</h1>
-<ul class="update-log">
-  <li>
-    <span class="update-date">07/16</span>
-    <a href="/game/">
-      ゲームページ更新テスト
-    </a>
-  </li>
-</ul>
-<div class="pagination">
-  <a href="" >
-    1
-  </a>
-</div>
+        <script>
+  if (localStorage.getItem('ydm-login') !== 'true') {
+    window.location.href = '/login.html';
+  }
+</script>
+<h1>ようこそ YDM.LABO へ！</h1>
+<p>このブログでは、技術・創作・日々の気づきを自由に綴っていきます。</p>
 <hr>
-<div class="news-note">
-  ※ 各更新項目の内容は、記事やゲーム・ツールなどの修正・追加・変更を記録しています。  
-  より詳しい内容はリンク先の記事本文をご覧ください。
-</div>
 
       </main>
 
