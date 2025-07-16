@@ -27,11 +27,8 @@
   </a>
 </header>
 
-
-
-
 <div class="time-image">
-  <img id="time-background" src="../assets/time/day.jpg" alt="時間帯画像" />
+  <img id="time-background" src="../assets/time/bg_day.png" alt="時間帯画像" />
 </div>
 
 
@@ -44,6 +41,8 @@
         <li><a href="../game/">🎮 GAME</a></li>
         <li><a href="../tools/">🛠 ツール</a></li>
         <li><a href="../links/">🔗 リンク</a></li>
+        <li><a href="../smoothies/">🍹 スムージー</a></li>
+        <li><a href="../fishdex/">🐟 魚図鑑</a></li>
       </ul>
     </nav>
 
@@ -131,77 +130,68 @@
     </div>
 
     <script>
+    document.addEventListener('DOMContentLoaded', () => {
       const bgm = document.getElementById('bgm');
       const muteBtn = document.getElementById('mute-btn');
       const logoutBtn = document.getElementById('logout-btn');
       const volumeSlider = document.getElementById('volume-slider');
-      const timeImage = document.getElementById('time-image');
 
-      const isMuted = localStorage.getItem('ydm-muted') === 'true';
-      const savedVolume = parseFloat(localStorage.getItem('ydm-volume')) || 0;
+      // 初期設定：音量0（ミュート状態）
+      bgm.volume = 0;
+      volumeSlider.value = 0;
+      muteBtn.textContent = '🔇';
 
-      bgm.muted = isMuted;
-      bgm.volume = savedVolume;
-      volumeSlider.value = savedVolume;
-      muteBtn.textContent = isMuted ? '🔇' : '🔊';
+      // ローカルストレージから設定を復元
+      const savedVolume = localStorage.getItem('ydm-volume');
+      if (savedVolume !== null) {
+        const vol = parseFloat(savedVolume);
+        bgm.volume = vol;
+        volumeSlider.value = vol;
+        muteBtn.textContent = vol === 0 ? '🔇' : '🔊';
+      }
 
+      // ミュートボタン
       muteBtn.addEventListener('click', () => {
-        const nowMuted = !bgm.muted;
-        bgm.muted = nowMuted;
-        localStorage.setItem('ydm-muted', nowMuted);
-        muteBtn.textContent = nowMuted ? '🔇' : '🔊';
+        if (bgm.volume > 0) {
+          bgm.volume = 0;
+          volumeSlider.value = 0;
+          muteBtn.textContent = '🔇';
+          localStorage.setItem('ydm-volume', '0');
+        } else {
+          bgm.volume = 0.3;
+          volumeSlider.value = 0.3;
+          muteBtn.textContent = '🔊';
+          localStorage.setItem('ydm-volume', '0.3');
+        }
       });
 
+      // 音量スライダー
       volumeSlider.addEventListener('input', () => {
         const vol = parseFloat(volumeSlider.value);
         bgm.volume = vol;
+        muteBtn.textContent = vol === 0 ? '�' : '�🔊';
         localStorage.setItem('ydm-volume', vol);
       });
 
+      // ログアウトボタン
       logoutBtn.addEventListener('click', () => {
         localStorage.removeItem('ydm-login');
-        window.location.href = '../login.html';
+        window.location.href = '../login/';
       });
 
-      if (!localStorage.getItem('ydm-muted') && localStorage.getItem('ydm-login') === 'true') {
-        const modal = document.getElementById('bgm-modal');
-        modal.classList.remove('hidden');
-
-        document.getElementById('bgm-yes').addEventListener('click', () => {
-          localStorage.setItem('ydm-muted', 'false');
-          bgm.muted = false;
-          muteBtn.textContent = '🔊';
-          modal.remove();
-        });
-
-        document.getElementById('bgm-no').addEventListener('click', () => {
-          localStorage.setItem('ydm-muted', 'true');
-          bgm.muted = true;
-          muteBtn.textContent = '🔇';
-          modal.remove();
-        });
+      // 時間帯背景
+      const img = document.getElementById("time-background");
+      const now = new Date().getHours();
+      
+      if (now >= 6 && now < 17) {
+        img.src = "../assets/time/bg_day.png";
+      } else if (now >= 17 && now < 20) {
+        img.src = "../assets/time/bg_evening.png";
+      } else {
+        img.src = "../assets/time/bg_night.png";
       }
-
-      const hour = new Date().getHours();
-      let imagePath = "../assets/bg_day.png";
-      if (hour >= 17 && hour < 20) {
-        imagePath = "../assets/bg_evening.png";
-      } else if (hour >= 20 || hour < 6) {
-        imagePath = "../assets/bg_night.png";
-      }
-      timeImage.style.backgroundImage = `url('${imagePath}')`;
+    });
     </script>
-    <script>
-  const now = new Date().getHours();
-  const img = document.getElementById("time-background");
-  if (now >= 6 && now < 17) {
-    img.src = "../assets/time/bg_day.png";
-  } else if (now >= 17 && now < 20) {
-    img.src = "../assets/time/bg_evening.png";
-  } else {
-    img.src = "../assets/time/bg_night.png";
-  }
-</script>
 
 <!-- SVGフィルター：必ずこれを1回だけ！ -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -303,9 +293,6 @@
     spawnFish();
   });
 </script> -->
-
-<script src="/scripts/fish-capture.js" defer></script>
-<div class="fish-shadow" data-id="fish_001"></div>
 
   </body>
 </html>

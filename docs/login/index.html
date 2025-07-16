@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>秘密基地ログイン</title>
-  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="../style.css" />
   <style>
     body {
       margin: 0;
@@ -67,7 +68,7 @@
       if (input === 'ydm0001' || input === '000e') {
         localStorage.setItem('ydm-login', 'true');
         localStorage.removeItem('ydm-muted');
-        window.location.href = '/';
+        window.location.href = '../';
       } else {
         alert('パスワードが違います。');
       }
@@ -83,7 +84,7 @@
     });
 
     if (localStorage.getItem('ydm-login') === 'true') {
-      window.location.href = '/';
+      window.location.href = '../';
     }
   </script>
 </body>

@@ -6,19 +6,29 @@ module.exports = function(eleventyConfig) {
     return DateTime.fromJSDate(new Date(value), { zone: "utc" }).toFormat(format);
   });
 
-  // 相対パス計算フィルター
+  // 相対パス計算フィルター - 修正版
   eleventyConfig.addFilter("relativePath", (currentUrl) => {
-    if (currentUrl === "/" || currentUrl === "/index.html") {
+    if (!currentUrl || currentUrl === "/" || currentUrl === "/index.html") {
       return "";
     }
-    const depth = (currentUrl.match(/\//g) || []).length - 1;
-    return "../".repeat(depth);
+    
+    // 末尾がスラッシュで終わる場合は、/index.htmlがあると仮定
+    let normalizedUrl = currentUrl;
+    if (normalizedUrl.endsWith('/') && normalizedUrl !== '/') {
+      normalizedUrl = normalizedUrl + 'index.html';
+    }
+    
+    // URLをパーツに分解（空文字を除外）
+    const urlParts = normalizedUrl.split('/').filter(part => part !== '');
+    // ファイル名を除いた深さを計算
+    const depth = urlParts.length - 1;
+    
+    return "../".repeat(Math.max(0, depth));
   });
 
   // 静的ファイルのコピー
   eleventyConfig.addPassthroughCopy({ "src/style.css": "style.css" });
   eleventyConfig.addPassthroughCopy("src/assets");
-  eleventyConfig.addPassthroughCopy("src/login.html");
 
   // CSS自動再読み込み
   eleventyConfig.addWatchTarget("src/style.css");
