@@ -4,14 +4,13 @@
     <meta charset="UTF-8" />
     <title>{{ title or "YDM.LABO" }}</title>
 
-    {% set basePath = page.url | relativePath %}
-    <link rel="stylesheet" href="{{ basePath }}style.css" />
+    <link rel="stylesheet" href="{{ 'style.css' | relativePath }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
 
     <audio id="bgm" autoplay loop hidden>
-      <source src="{{ basePath }}assets/bgm.mp3" type="audio/mpeg" />
+      <source src="{{ 'assets/bgm.mp3' | relativePath }}" type="audio/mpeg" />
     </audio>
 
     <div class="top-right-buttons">
@@ -22,13 +21,13 @@
     <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0" />
 
 <header class="main-header">
-  <a href="{{ basePath }}index.html" class="main-header-logo-link">
-    <img src="{{ basePath }}assets/images/Ydmlabo.png" alt="YDM.LABO ロゴ" class="main-header-logo" />
+  <a href="{{ '' | relativePath }}" class="main-header-logo-link">
+    <img src="{{ 'assets/images/Ydmlabo.png' | relativePath }}" alt="YDM.LABO ロゴ" class="main-header-logo" />
   </a>
 </header>
 
 <div class="time-image">
-  <img id="time-background" src="{{ basePath }}assets/time/bg_day.png" alt="時間帯画像" />
+  <img id="time-background" src="{{ 'assets/time/bg_day.png' | relativePath }}" alt="時間帯画像" />
 </div>
 
 
@@ -36,13 +35,13 @@
 
     <nav class="horizontal-menu">
       <ul class="category-list">
-        <li><a href="{{ basePath }}posts/">📘 記事</a></li>
-        <li><a href="{{ basePath }}news/">📰 ニュース</a></li>
-        <li><a href="{{ basePath }}game/">🎮 GAME</a></li>
-        <li><a href="{{ basePath }}tools/">🛠 ツール</a></li>
-        <li><a href="{{ basePath }}links/">🔗 リンク</a></li>
-        <li><a href="{{ basePath }}smoothies/">🍹 スムージー</a></li>
-        <li><a href="{{ basePath }}fishdex/">🐟 魚図鑑</a></li>
+        <li><a href="{{ 'posts/' | relativePath }}">📘 記事</a></li>
+        <li><a href="{{ 'news/' | relativePath }}">📰 ニュース</a></li>
+        <li><a href="{{ 'game/' | relativePath }}">🎮 GAME</a></li>
+        <li><a href="{{ 'tools/' | relativePath }}">🛠 ツール</a></li>
+        <li><a href="{{ 'links/' | relativePath }}">🔗 リンク</a></li>
+        <li><a href="{{ 'smoothies/' | relativePath }}">🍹 スムージー</a></li>
+        <li><a href="{{ 'fishdex/' | relativePath }}">🐟 魚図鑑</a></li>
       </ul>
     </nav>
 
@@ -55,13 +54,13 @@
       {% if page.url and (page.url.startsWith("/posts/") or page.url.startsWith("/game/") or page.url.startsWith("/smoothies/") or page.url.startsWith("/fishdex/")) and not (page.url.endsWith("/posts/") or page.url.endsWith("/game/") or page.url.endsWith("/smoothies/") or page.url.endsWith("/fishdex/")) %}
   <div class="back-button-area">
     {% if page.url.startsWith("/posts/") %}
-      <a href="{{ basePath }}posts/" class="back-button">← 記事一覧に戻る</a>
+      <a href="{{ 'posts/' | relativePath }}" class="back-button">← 記事一覧に戻る</a>
     {% elif page.url.startsWith("/game/") %}
-      <a href="{{ basePath }}game/" class="back-button">← ゲーム一覧に戻る</a>
+      <a href="{{ 'game/' | relativePath }}" class="back-button">← ゲーム一覧に戻る</a>
     {% elif page.url.startsWith("/smoothies/") %}
-      <a href="{{ basePath }}smoothies/" class="back-button">← スムージー図鑑に戻る</a>
+      <a href="{{ 'smoothies/' | relativePath }}" class="back-button">← スムージー図鑑に戻る</a>
     {% elif page.url.startsWith("/fishdex/") %}
-      <a href="{{ basePath }}fishdex/" class="back-button">← 魚図鑑に戻る</a>
+      <a href="{{ 'fishdex/' | relativePath }}" class="back-button">← 魚図鑑に戻る</a>
     {% endif %}
   </div>
 {% endif %}
@@ -75,7 +74,7 @@
       <aside class="sidebar-right">
         <div class="latest-posts-sidebar">
   <div class="fishdex-box">
-  <h3><a href="{{ basePath }}fishdex/">🐟 魚図鑑（仮）</a></h3>
+  <h3><a href="{{ 'fishdex/' | relativePath }}">🐟 魚図鑑（仮）</a></h3>
   <p>準備中の魚図鑑です。</p>
 </div>
 
@@ -180,7 +179,7 @@
       // ログアウトボタン
       logoutBtn.addEventListener('click', () => {
         localStorage.removeItem('ydm-login');
-        window.location.href = '{{ basePath }}login/';
+        window.location.href = '{{ "login/" | relativePath }}';
       });
 
       // 時間帯背景
@@ -188,11 +187,11 @@
       const now = new Date().getHours();
       
       if (now >= 6 && now < 17) {
-        img.src = "{{ basePath }}assets/time/bg_day.png";
+        img.src = "{{ 'assets/time/bg_day.png' | relativePath }}";
       } else if (now >= 17 && now < 20) {
-        img.src = "{{ basePath }}assets/time/bg_evening.png";
+        img.src = "{{ 'assets/time/bg_evening.png' | relativePath }}";
       } else {
-        img.src = "{{ basePath }}assets/time/bg_night.png";
+        img.src = "{{ 'assets/time/bg_night.png' | relativePath }}";
       }
     });
     </script>

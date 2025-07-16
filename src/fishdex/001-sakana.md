@@ -8,7 +8,7 @@ permalink: /fishdex/001/
 ---
 
 <div class="back-button-area">
-  <a href="{{ '../fishdex/' | relativePath }}" class="back-button">← 図鑑に戻る</a>
+  <a href="{{ 'fishdex/' | relativePath }}" class="back-button">← 図鑑に戻る</a>
 </div>
 
 

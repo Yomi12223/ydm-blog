@@ -8,7 +8,7 @@ permalink: /game/
 
 <!-- ✅ もう一つの main は使わず、中身だけでOK！ -->
 <div class="back-button-area">
-  <a href="{{ '../' | relativePath }}" class="back-button">← トップページに戻る</a>
+  <a href="{{ '' | relativePath }}" class="back-button">← トップページに戻る</a>
 </div>
 
 <h1>🎮 GAME</h1>

@@ -79,5 +79,5 @@ draw();
 </script>
 
 <div class="back-button-area">
-  <a href="{{ '../game/' | relativePath }}" class="back-button">⇐ゲーム一覧に戻る</a>
+  <a href="{{ 'game/' | relativePath }}" class="back-button">⇐ゲーム一覧に戻る</a>
 </div>

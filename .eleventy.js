@@ -7,12 +7,14 @@ module.exports = function(eleventyConfig) {
   });
 
   // 相対パス計算フィルター - 修正版
-  eleventyConfig.addFilter("relativePath", (currentUrl) => {
+  eleventyConfig.addFilter("relativePath", function(targetPath) {
+    const currentUrl = this.page.url; // Nunjucksのコンテキストから現在のURLを取得
+    
     if (!currentUrl || currentUrl === "/" || currentUrl === "/index.html") {
-      return "";
+      return targetPath;
     }
     
-    // 末尾がスラッシュで終わる場合は、/index.htmlがあると仮定
+    // 現在のページの深さを計算
     let normalizedUrl = currentUrl;
     if (normalizedUrl.endsWith('/') && normalizedUrl !== '/') {
       normalizedUrl = normalizedUrl + 'index.html';
@@ -23,7 +25,8 @@ module.exports = function(eleventyConfig) {
     // ファイル名を除いた深さを計算
     const depth = urlParts.length - 1;
     
-    return "../".repeat(Math.max(0, depth));
+    const relativePath = "../".repeat(Math.max(0, depth));
+    return relativePath + targetPath;
   });
 
   // 静的ファイルのコピー
