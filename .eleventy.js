@@ -6,6 +6,15 @@ module.exports = function(eleventyConfig) {
     return DateTime.fromJSDate(new Date(value), { zone: "utc" }).toFormat(format);
   });
 
+  // 相対パス計算フィルター
+  eleventyConfig.addFilter("relativePath", (currentUrl) => {
+    if (currentUrl === "/" || currentUrl === "/index.html") {
+      return "";
+    }
+    const depth = (currentUrl.match(/\//g) || []).length - 1;
+    return "../".repeat(depth);
+  });
+
   // 静的ファイルのコピー
   eleventyConfig.addPassthroughCopy({ "src/style.css": "style.css" });
   eleventyConfig.addPassthroughCopy("src/assets");
