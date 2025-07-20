@@ -7,11 +7,26 @@ permalink: /posts/
 <h1>📘 記事一覧</h1>
 
 <div class="latest-posts-grid">
-  <a href="{{ 'posts/001/' | relativePath }}" class="post-card">
-    <img src="{{ 'assets/default-thumb.png' | relativePath }}" alt="">
-    <h3>初投稿</h3>
-    <p class="date">2024/05/20</p>
-  </a>
+  {% for post in collections.diary %}
+    <a href="{{ post.url }}" class="post-card">
+      {% if post.data.thumbnail %}
+        <img src="{{ post.data.thumbnail | relativePath }}" alt="{{ post.data.title }}">
+      {% else %}
+        <img src="{{ 'assets/default-thumb.png' | relativePath }}" alt="{{ post.data.title }}">
+      {% endif %}
+      <h3>{{ post.data.title }}</h3>
+      <p class="date">{{ post.data.date | date("yyyy/MM/dd") }}</p>
+      {% if post.data.tags %}
+        <div class="tag-list">
+          {% for tag in post.data.tags %}
+            {% if tag != "tagPages" and tag != "tags" %}
+              <span>#{{ tag }}</span>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </a>
+  {% endfor %}
 </div>
 
 {# 
