@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<data-extraction-rules>
-    <data-extraction>
-        <data>
-            <exclude domain="root" />
-            <exclude domain="device_transfer" />
-        </data>
-    </data-extraction>
-</data-extraction-rules>

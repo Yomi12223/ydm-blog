@@ -1,0 +1,27 @@
+# Build output
+dist/
+_site/
+
+# Node modules
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# Environment files
+.env
+.env.local
+
+# Log files
+*.log
+npm-debug.log*
+
+# Android build files
+markdown-editor-app/app/build/
+markdown-editor-app/.gradle/
+markdown-editor-app/local.properties
