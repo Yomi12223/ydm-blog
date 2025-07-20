@@ -29,6 +29,16 @@ module.exports = function(eleventyConfig) {
     return relativePath + targetPath;
   });
 
+  // URLフィルター（GitHub Pages用）
+  eleventyConfig.addFilter("url", function(url) {
+    const isProd = process.env.NODE_ENV === 'production';
+    const baseUrl = isProd ? '/ydm-blog' : '';
+    if (!url) return baseUrl + '/';
+    if (url.startsWith('http')) return url;
+    if (!url.startsWith('/')) url = '/' + url;
+    return baseUrl + url;
+  });
+
   // 静的ファイルのコピー
   eleventyConfig.addPassthroughCopy({ "src/style.css": "style.css" });
   eleventyConfig.addPassthroughCopy("src/assets");

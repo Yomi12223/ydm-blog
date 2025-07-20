@@ -8,7 +8,7 @@ permalink: /posts/
 
 <div class="latest-posts-grid">
   {% for post in collections.diary %}
-    <a href="{{ post.url }}" class="post-card">
+    <a href="{{ post.url | url }}" class="post-card">
       {% if post.data.thumbnail %}
         <img src="{{ post.data.thumbnail | relativePath }}" alt="{{ post.data.title }}">
       {% else %}

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "eleventy",
+    "build": "NODE_ENV=production eleventy",
+    "build:local": "eleventy",
     "dev": "eleventy --serve",
     "deploy": "npm run build && xcopy /E /Y dist\\* docs\\",
     "clean": "if exist dist rmdir /s /q dist"
