@@ -832,4 +832,131 @@ h1, h2, h3 {
   padding: 0;
   border: none;
   line-height: 0; /* ← 下方向の空白を完全に潰す！ */
+  text-align: center; /* ロゴを中央揃え */
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .main-header-logo {
+    max-width: 80vw; /* モバイルでは画面幅の80%まで */
+    height: auto;
+  }
+  
+  .horizontal-menu {
+    padding: 0.5rem;
+  }
+  
+  .category-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .category-list li {
+    flex: 0 1 auto;
+    min-width: auto;
+  }
+  
+  .category-list a {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-header-logo {
+    max-width: 90vw; /* より小さな画面では90%まで */
+  }
+  
+  .category-list a {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  
+  .page-layout {
+    grid-template-columns: 1fr; /* サイドバーを無効化 */
+    grid-template-areas: "main";
+  }
+  
+  .sidebar-left,
+  .sidebar-right {
+    display: none; /* モバイルではサイドバーを非表示 */
+  }
+  
+  .main-content {
+    padding: 1rem;
+  }
+}
+
+/* 更新履歴スタイル */
+.update-history {
+  background: rgba(0, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.update-item {
+  display: flex;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+  align-items: flex-start;
+}
+
+.update-item:last-child {
+  border-bottom: none;
+}
+
+.update-date {
+  background: rgba(0, 255, 255, 0.2);
+  color: #0ff;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  white-space: nowrap;
+  min-width: 80px;
+  text-align: center;
+}
+
+.update-content {
+  color: #ccc;
+  line-height: 1.4;
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .update-item {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .update-date {
+    align-self: flex-start;
+    min-width: auto;
+  }
+}
+
+/* 記事一覧グリッドレイアウト */
+.latest-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.5rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 768px) {
+  .latest-posts-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .latest-posts-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
 }

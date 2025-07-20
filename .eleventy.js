@@ -94,7 +94,7 @@ eleventyConfig.addCollection("tagList", function (collectionApi) {
       input: "src",
       includes: "_includes",
       layouts: "_includes",
-      output: "dist"
+      output: "docs"
     },
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",

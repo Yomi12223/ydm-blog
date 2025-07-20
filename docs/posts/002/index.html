@@ -2,15 +2,15 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <title>GAME</title>
+    <title>江の島旅行編 準備編</title>
 
-    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../../style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
 
     <audio id="bgm" autoplay loop hidden>
-      <source src="../assets/bgm.mp3" type="audio/mpeg" />
+      <source src="../../assets/bgm.mp3" type="audio/mpeg" />
     </audio>
 
     <div class="top-right-buttons">
@@ -21,13 +21,13 @@
     <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0" />
 
 <header class="main-header">
-  <a href="../" class="main-header-logo-link">
-    <img src="../assets/images/Ydmlabo.png" alt="YDM.LABO ロゴ" class="main-header-logo" />
+  <a href="../../" class="main-header-logo-link">
+    <img src="../../assets/images/Ydmlabo.png" alt="YDM.LABO ロゴ" class="main-header-logo" />
   </a>
 </header>
 
 <div class="time-image">
-  <img id="time-background" src="../assets/time/bg_day.png" alt="時間帯画像" />
+  <img id="time-background" src="../../assets/time/bg_day.png" alt="時間帯画像" />
 </div>
 
 
@@ -35,11 +35,11 @@
 
     <nav class="horizontal-menu">
       <ul class="category-list">
-        <li><a href="../posts/">📘 記事</a></li>
-        <li><a href="../news/">📰 ニュース</a></li>
-        <li><a href="../game/">🎮 GAME</a></li>
-        <li><a href="../tools/">🛠 ツール</a></li>
-        <li><a href="../links/">🔗 リンク</a></li>
+        <li><a href="../../posts/">📘 記事</a></li>
+        <li><a href="../../news/">📰 ニュース</a></li>
+        <li><a href="../../game/">🎮 GAME</a></li>
+        <li><a href="../../tools/">🛠 ツール</a></li>
+        <li><a href="../../links/">🔗 リンク</a></li>
       </ul>
     </nav>
 
@@ -50,22 +50,44 @@
 
       <main class="main-content">
       
+  <div class="back-button-area">
+    
+      <a href="../../posts/" class="back-button">← 記事一覧に戻る</a>
+    
+  </div>
 
-        <!-- ✅ もう一つの main は使わず、中身だけでOK！ -->
-<div class="back-button-area">
-  <a href="../" class="back-button">← トップページに戻る</a>
-</div>
-<h1>🎮 GAME</h1>
-<div class="game-list">
-  <a href="../game/dodge/" class="game-card">
-    <h3>🟢 ドットをよけろ！</h3>
-    <p>マウスで避けるだけのシンプルアクション！</p>
-  </a>
-  <a href="../game/fish/" class="game-card">
-    <h3>🎣 秘密の釣り場</h3>
-    <p>魚影を狙ってタイミングよく釣り上げろ！</p>
-  </a>
-</div>
+
+        <h1>江の島旅行 準備編</h1>
+<p><img src="../assets/images/enosima.jpg" alt="江の島">
+<br></p>
+<hr>
+<p>というわけで江の島にいきました。<br></p>
+<p>今回は準備編です(少しでも記事の数を増やしたい)
+<br><br></p>
+<h1>所持品紹介</h1>
+<br>
+<h2>スマホ (xiaomi 15 ultra)</h2>
+<p><img src="../assets/images/sumaho.jpg" alt="スマホ"></p>
+<p>カメラ付きスマホ<br>
+SoCがSnapdragon 8 Eliteだから困ることなし。<br>
+バカでかいカメラ持つのも荷物なので旅行での写真は全てこれで撮影します。(動画や夜景は別のアクションカメラかも)<br>
+FeliCa(おサイフケータイ)が非搭載なのでそれだけが不満。てか未だにFeliCaを使ってる日本が悪い。<br><br></p>
+<hr>
+<h2>腕時計 (GARMIN vivoactive 5)</h2>
+<p><img src="../assets/images/sumawatch.jpg" alt="腕時計"></p>
+<p>ずっと使ってるやつ<br>
+歩数、消費カロリー、移動距離、気温、天気が一画面で全部見れる。<br>
+GPSがついててGoogleMapとの連携で方向も指示してくれるから迷子にならないですむ。<br>
+FeliCaも搭載しててほとんどの決済を腕をかざすだけで済ませられる<br>
+なんでこの性能のスマートウォッチが安価で買えるんだ？<br></p>
+<br>
+<hr>
+<br>
+<h2>あとはサイフとイヤホンと軽食と経口補水液と水1本とモバイルバッテリー(30000mAh)！！！</h2>
+<h2>水は常に持っておけよ！！！！約束だぞ！！！</h2>
+<br>
+<p>前編に続く</p>
+
       </main>
 
       <div id="fish-container"></div>
@@ -172,7 +194,7 @@
       // ログアウトボタン
       logoutBtn.addEventListener('click', () => {
         localStorage.removeItem('ydm-login');
-        window.location.href = '../login/';
+        window.location.href = '../../login/';
       });
 
       // 時間帯背景
@@ -180,11 +202,11 @@
       const now = new Date().getHours();
       
       if (now >= 6 && now < 17) {
-        img.src = "../assets/time/bg_day.png";
+        img.src = "../../assets/time/bg_day.png";
       } else if (now >= 17 && now < 20) {
-        img.src = "../assets/time/bg_evening.png";
+        img.src = "../../assets/time/bg_evening.png";
       } else {
-        img.src = "../assets/time/bg_night.png";
+        img.src = "../../assets/time/bg_night.png";
       }
     });
     </script>
